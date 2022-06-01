@@ -10,15 +10,16 @@
 
 
 //--OpenSakuraMenu
-//This is a bit of intro dialogue before the main character opens their menu. You can see below that there are three pieces of separate dialogue listed before it goes to MenuRun. The character will randomly choose one of those pieces of dialogue before opening the rest of their menu. You can customize this with individual greetings for the character, such as "Yes, %(username)?" or "Need something, %(username)?" or things like that. Note that none of the lines end with \e!
+//This is a bit of intro dialogue before the main character opens their menu. You can see below that there are three pieces of separate dialogue listed before it goes to MenuRun. 
+//The character will randomly choose one of those pieces of dialogue before opening the rest of their menu. 
+//You can customize this with individual greetings for the character, such as "Yes, %(username)?" or "Need something, %(username)?" or things like that. Note that none of the lines end with \e!
 //The \b2 tag tells the ghost to use their big balloon for this dialogue. If your menu has a lot of stuff, this'll probably look better than the small one.
 //If you don't want multiple responses before opening the menu, you can delete the dialogue and just leave MenuRun.
 
 OpenSakuraMenu
 {
-		"\0\s[0]\b2This is the first random menu open dialogue."
-		"\0\s[0]\b2This is the second random menu open dialogue."
-		"\0\s[0]\b2This is the third random menu open dialogue."
+		"\0\s[5]\b2you need something %(username)?"
+		"\0\s[0]\b2what = up %(username)?"
 		--
 		MenuRun
 }
@@ -30,7 +31,8 @@ MenuRun
  {	
  	wd = GetWeekDay
  	ap = GetAP
-	//These four statements basically get the day of the week, whether it's AM or PM, the hour, and the time. It's putting together the information to display the time at the bottom of the balloon. Pay it no mind.
+	//These four statements basically get the day of the week, whether it's AM or PM, the hour, and the time. 
+	//It's putting together the information to display the time at the bottom of the balloon. Pay it no mind.
 	--
 	"\n\n\_q\b2" //The \n\n means two new lines as detailed in the walkthrough, and \_q means quick session, meaning all the text from this point on will display instantly instead of a few letters at a time like normal ghost dialogue.
 	--
@@ -42,12 +44,14 @@ MenuRun
 	  //*********************Advanced User Info*******************************
 	  //These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
 	  
-	  //I briefly touched in bootend.dic about \q, but I'll again cover it here. Pay very close attention to how this bit of dialogue is formatted. You'll see it goes \![*]\q[Displayed Name,linkedfunction]. Breaking it down, \![*] puts the balloon's option icon in front of the choice (usually a > or something), \q sets up the choice, Displayed Name which is the text that will display in the ghost's balloon, then linkedfunction, which is what the choice is linked to when the user clicks it. As you go through this file, look at how every menu option is set up, and you will see they all follow this format, give or take a \![*]. If you're going to be adding new options to menus or creating your own functions and such, make sure you follow this format and learn it well. Make sure to read the coding page of the walkthrough.
+	  //I briefly touched in bootend.dic about \q, but I'll again cover it here. Pay very close attention to how this bit of dialogue is formatted. 
+	  //You'll see it goes \![*]\q[Displayed Name,linkedfunction].
+	  //Breaking it down, \![*] puts the balloon's option icon in front of the choice (usually a > or something), \q sets up the choice, Displayed Name which is the text that will display in the ghost's balloon, then linkedfunction, which is what the choice is linked to when the user clicks it. As you go through this file, look at how every menu option is set up, and you will see they all follow this format, give or take a \![*]. If you're going to be adding new options to menus or creating your own functions and such, make sure you follow this format and learn it well. Make sure to read the coding page of the walkthrough.
 	  //***********************************************************************
 	}
 	--
  	"\![*]\q[Say something,OnAiTalk]\n"
-	"\![*]\q[Say something 2,OnAiTalk]\n"
+	//"\![*]\q[Say something 2,OnAiTalk]\n"
 	
 	//This option will force the ghost to say something from aitalk if the user clicks it. Just replace "Say something" and "Say something 2" with whatever captions you think would be appropriate for such an option. IF you don't want two options for captions, delete one of the lines.
 	//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, as long as you separate it from the other options into its own section with two dashes above and below.
@@ -56,7 +60,8 @@ MenuRun
 	\![*]\q[Functions,dosomething]\n\n[half]/
  	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	
-	//These three lead to the Config Menu, the Function menu, and Cancel. You can leave these alone if you like. All the envelopes at the end (see word.dic) basically display the year, month, day, weekday, and time.
+	//These three lead to the Config Menu, the Function menu, and Cancel. You can leave these alone if you like. 
+	//All the envelopes at the end (see word.dic) basically display the year, month, day, weekday, and time.
 }
 
 //Leave this alone
@@ -107,7 +112,8 @@ nowmin
 
 
 //If someone selects an option linked to BACKTOMENU, it will go back to MenuRun.
-//Advanced users, note that this is formatted as Select.linkedfunction? Remember how it went \q[Displayed Name,linkedfunction] above? When a user clicks an option that doesn't begin with On, they'll be linked to Select.linkedfunction. Pay close attention as we go through and you'll see this in action.
+//Advanced users, note that this is formatted as Select.linkedfunction? Remember how it went \q[Displayed Name,linkedfunction] above? 
+//When a user clicks an option that doesn't begin with On, they'll be linked to Select.linkedfunction. Pay close attention as we go through and you'll see this in action.
 
 Select.BACKTOMENU
 	{
@@ -122,8 +128,11 @@ Select.configmenu
 
 //*********************Advanced User Info*******************************
 //Some of you may be wondering why some of these Select.options lead to another function. Why not just put the config menu coding under Select.configmenu, instead of linking to TalkConfig?
-//Basically any function that's preceded with Select. is limited in its complexity and can only be called within its own .dic file in my experience. Why should you care, you ask? Well, if you're going to link to this function any other way, such as linking it in other .dic files or as a page in a menu, it needs to be a stand-alone function so it can be properly called. I'm pretty sure.
-//The basic jist is this; if you're going to reuse whatever it is the option leads to, you should make it its own function. Otherwise, you can leave it in Select.option. As a rule of thumb I'd probably put any complicated stuff in its own function, then use the Select.option to call the full function as you can see above. Simple dialogue responses to a choice can stay as a Select.option though (Like "Do you like going to raves and partying? Yes/No"). Study what stays as a Select.option and what links to another Function as we go through the file.
+//Basically any function that's preceded with Select. is limited in its complexity and can only be called within its own .dic file in my experience. 
+//Why should you care, you ask? Well, if you're going to link to this function any other way, such as linking it in other .dic files or as a page in a menu, 
+//it needs to be a stand-alone function so it can be properly called. I'm pretty sure.
+//The basic jist is this; if you're going to reuse whatever it is the option leads to, you should make it its own function. 
+//Otherwise, you can leave it in Select.option. As a rule of thumb I'd probably put any complicated stuff in its own function, then use the Select.option to call the full function as you can see above. Simple dialogue responses to a choice can stay as a Select.option though (Like "Do you like going to raves and partying? Yes/No"). Study what stays as a Select.option and what links to another Function as we go through the file.
 //***********************************************************************
 
 //--TalkConfig
@@ -133,7 +142,8 @@ TalkConfig
 {
 	"\0\b[2]\_q\" 
 	//This bit of dialogue sets up a large balloon and a quick session, like above, so all the text will appear immediately. The rest is formatted to display the information and options to change it. I wouldn't touch any of it if you don't know what you're doing.
-	//I'll briefly explain the font tags I used here. \f[bold,1] turns bold on, \f[bold,0] turns it off, not unlike a <b> tag. \f[sup,1] turns superscript on (making it tiny and above the text) and \f[sup,0] turns it off. I touch on these tags in the walkthrough on SakuraScript.
+	//I'll briefly explain the font tags I used here. \f[bold,1] turns bold on, \f[bold,0] turns it off, not unlike a <b> tag. 
+	//\f[sup,1] turns superscript on (making it tiny and above the text) and \f[sup,0] turns it off. I touch on these tags in the walkthrough on SakuraScript.
 	--
 	"f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n"
 	--
@@ -154,7 +164,7 @@ TalkConfig
 
 Select.TEACHPRONOUN
 {
-	"\0\s[0]What pronouns do you want?\w5\n\n[half]\_q/
+	"\0\s[0]you got different pronouns?\w5\n\n[half]\_q/
 		\![*]\q[He-His-Him,choicemasc]\n/
 		\![*]\q[She-Her-Her,choicefem]\n/	
 		\![*]\q[They-Their-Them,choiceneither]\e"
@@ -222,7 +232,7 @@ Select.deleteoff
 
 Select.TEACHBDAY
 	{	
-		"\0\s[0]What month were you born? \w8Name or number is fine.\![open,inputbox,OnUserBornMonth,-1]\e"
+		"\0\s[5]what month were you born? \w8Name or number is fine.\![open,inputbox,OnUserBornMonth,-1]\e"
 		
 		//You can replace the dialogue up to the \![open,inputbox,OnUserBornMonth,-1] tag, leave that alone. You'll need the input box to get the information.
 		
@@ -256,7 +266,7 @@ OnUserBornMonth
 	
 	else //if the month isn't a valid month, like 32 or something.
 	{
-			"\0\s[0]That's not a valid month. Try again."
+			"\0\s[0]= you sure that = a month?"
 			--
 			"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
 			
@@ -265,7 +275,7 @@ OnUserBornMonth
 	--
 	//If it's a valid month
 	
-	"\0\s[0]So you were born in %(bornmonthprint).\n\w8What day was it?"
+	"\0\s[0]so you were born in %(bornmonthprint);\n\w8What day = it?"
 	--
 	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
 	
@@ -311,7 +321,7 @@ OnUserBornDay
 	}
 	else //If the day isn't valid, like the 10046th or something, this will open the input box again and have a \e so the dialogue below doesn't play. You can replace the dialogue in the first line here.
 	{
-		"\0\s[0]That's not a valid day. Try again."
+		"\0\s[0]= you sure that = correct?"
 		--
 		"\![open,inputbox,OnUserBornDay,-1]\e"
 	}	
@@ -324,17 +334,17 @@ birthchecked
 {
 	if userbirthday == dayslot //if today is the user's birthday
 		{
-			"\0\s[0]It's the user's birthday.\w8\1\s[10]Happy birthday, %(username).\e"
+			"\0\s[2]your birthday = today;\w4 \s[5]happy birthday, %(username);\e"
 			//replace this dialogue with whatever you like
 		}
-	elseif userbirthday == "12month 25day"
-		{
-			"\0\s[0]The user was born on Christmas.\w8\1\s[10]Happy birthday, %(username). \w5\s[15]AND JESUS!\w8\0\s[9]\n\n[half]We're supposed to be a blank template, knock it off before we get in trouble.\e"
-			//As you can see, you can set up an elseif statement to check if the user's birthday is any day you want! More on elseif statements in bootend.dic. In this case, there's specialized dialogue if the user was born on Christmas. You can replace this with whatever you like, or change the date you're checking as well, like to one of your character's birthdays if you want. You can also delete this elseif if you don't care.
-		}
+	//elseif userbirthday == "12month 25day"
+	//	{
+	//		"\0\s[0]The user was born on Christmas.\w8\1\s[10]Happy birthday, %(username). \w5\s[15]AND JESUS!\w8\0\s[9]\n\n[half]We're supposed to be a blank template, knock it off before we get in trouble.\e"
+	//		//As you can see, you can set up an elseif statement to check if the user's birthday is any day you want! More on elseif statements in bootend.dic. In this case, there's specialized dialogue if the user was born on Christmas. You can replace this with whatever you like, or change the date you're checking as well, like to one of your character's birthdays if you want. You can also delete this elseif if you don't care.
+	//	}
 	else //if the birthday is not listed above.
 		{
-			"\0\s[0]Your birthday is %(bornmonthprint) %(borndayprint). We'll remember.\e"
+			"\0\s[0]your birthday = %(bornmonthprint) %(borndayprint) right? i'll remember that;\e"
 			//note the use of envelopes to display the newly set birthday properly. You can replace this dialogue as well, and you can use %(bornmonthprint) and %(borndayprint) to display the month and day in the new dialogue, if you want.
 		}
 }
@@ -569,7 +579,9 @@ Select.keroupdatecheck
 }
 
 //--Test Variable --------------------------------------------------------
-//I briefly mentioned the test variable in bootend.dic and possibly in etc.dic as well, I'm not sure. What exactly is the test variable? Basically, it's a place you can plug in anything you want to test out. While you can use Script Input to test most of your ghost's dialogue, there are some lines it just can't do, and it can't help you test choices. But the test variable can!
+//I briefly mentioned the test variable in bootend.dic and possibly in etc.dic as well, I'm not sure. What exactly is the test variable? 
+//Basically, it's a place you can plug in anything you want to test out. While you can use Script Input to test most of your ghost's dialogue, 
+//there are some lines it just can't do, and it can't help you test choices. But the test variable can!
 //You can also use this to test functions as I mentioned above by adding \![raise,function] at the end of it, although you can do this with Script Input as well. Advanced Users, the test variable is also great for testing out any new stuff you may add to your ghost, like mode settings, item values, functions, raising or lowering numbers, what have you, particularly if you have a bunch you want to change all at once.
 
 //It is ALWAYS A GOOD IDEA to test your dialogue! If you won't check it with the test variable, at least test it with Script Input! It'll save you so much trouble!

@@ -132,13 +132,13 @@ element0,overlay,surface0.png,0,0
 
 //--Blinking---------------------------------------------------------------------------
 //Here's the animation block to set up a random blink.
-/*
-0interval,random,4
-0pattern0,-1,10,overlay,0,0
-0pattern1,1002,5,overlayfast,0,0
-0pattern2,1001,10,overlayfast,0,0
-0pattern3,-1,3,overlay,0,0
-*/
+
+//0interval,random,4
+//0pattern0,-1,10,overlay,0,0
+//0pattern1,1002,5,overlayfast,0,0
+//0pattern2,1001,10,overlayfast,0,0
+//0pattern3,-1,3,overlay,0,0
+
 0interval,random,4
 0pattern0,-1,10,overlay,0,0
 0pattern1,1002,15,overlayfast,0,0
@@ -167,26 +167,26 @@ element0,overlay,surface0.png,0,0
 
 //--Talking-----------------------------------------------------------------------------
 //This block deals with your ghost's mouth moving as it speaks to you. 
-/*
-1interval,talk,4
-1pattern0,0,0,alternativestart,[2.3.4]
+
+//1interval,talk,4
+//1pattern0,0,0,alternativestart,[2.3.4]
 
 //You can see some unique things about this block. The interval is set to talk,4, which means it'll run for every four characters or so that appear in the balloon. You can change 4 to a different number but there's no reason to, I wouldn't do it myself.
 //Below that line, you can see alternativestart, then some numbers in some brackets. What this does is that it will randomly select an interval with that number as it runs. Look below, do you see the intervals numbered 2, 3, and 4? Those are the intervals this animation will call. You can add numbers to those brackets or take them away if you want, so you could do things like [2.3.4.5] or [2.3] or whatever.
 
-2interval,never
-2pattern0,1102,10,overlay,0,0
-2pattern1,1101,13,overlay,0,0
-2pattern2,-1,10,overlay,0,0
+//2interval,never
+//2pattern0,1102,10,overlay,0,0
+//2pattern1,1101,13,overlay,0,0
+//2pattern2,-1,10,overlay,0,0
 
-3interval,never
-3pattern0,1101,14,overlay,0,0
-3pattern1,-1,10,overlay,0,0
+//3interval,never
+//3pattern0,1101,14,overlay,0,0
+//3pattern1,-1,10,overlay,0,0
 
-4interval,never
-4pattern0,1102,14,overlay,0,0
-4pattern1,-1,10,overlay,0,0
-*/
+//4interval,never
+//4pattern0,1102,14,overlay,0,0
+//4pattern1,-1,10,overlay,0,0
+
 //These three intervals handle the talk frames. For those who are doing their own thing or adding talk frames to their other Surfaces, all you need to do is copy and paste the talk blocks (1interval to 4interval) into the Surface you want and replace 1101 and 1102 with the appropriate file numbers for your new talk frames. You can also add more frames to your talking animation if you want. Those just replacing my images don't have to worry about any of this, as long as your mouth frames look like mine.
 //IMPORTANT NOTE: IF YOU'RE DOING A PROFILE VIEW AND YOUR MOUTH IS MOVING OUTSIDE THE BODY then you're going to need to use Replace instead. I'm sorry for your loss. I'll get into Replace later. Your other option is to change your pose or move your mouth or do something to make sure your mouth's movement does not break your character's silhouette. If any furries are reading this, you will probably run into this problem a lot with any kind of side-view of a muzzle.
 
@@ -288,7 +288,7 @@ element0,overlay,surface10.png,0,0
 //Surface.append basically applies the coding within the brackets to the poses specified in the number range. Specifically in this case it applies to collisions. If the collision areas for your ghost don't change very much from pose to pose, then you can set them here for multiple surfaces at once and save yourself some time.
 //I'm not actually going to use surface.append since Girl and Triangle move around too much for their collisions to be that consistent between poses, but it's something could potentially come in handy for advanced users or ghost makers who have very stationary ghosts, so I'll leave it here and just append it to surfaces that don't exist so it won't get in the way. If you want to use this, study this example and see how it can apply to your own ghost.
 
-/*
+
 surface.append500-590 //this is appending this code to Surface500 through Surface590.
 //There are actually a few special ways you can refine this! For example, surface.append500-590,205 would append the code to Surface500 to Surface590, as well as Surface205. 
 //surface.append500-590,205,!507-509 it would do the same, except it would skip Surfaces507 through 509.
@@ -309,7 +309,7 @@ collision1,40,50,102,84,Point
 //One final note on bind, note that it is also under surface.append along with the collisions up there. Meaning that this clothing would bind across those multiple surfaces just like the collisions. You can set up bind individually for a pose I think, but I honestly haven't messed around with it very much.
 
 //You can use surface.append to technically apply anything across multiple poses, I'm pretty sure... even images. I haven't messed with this too much myself, but I'm pretty sure it's possible. As with many things with ghosts, this can come in handy if you're creative.
-}*/
+}
 
 
 //--Unique Collision cursors------------------

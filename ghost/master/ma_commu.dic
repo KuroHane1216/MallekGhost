@@ -35,7 +35,9 @@ ReplyToUser
 //Here is where you get to write your dialogue. This will be what your ghost will say when another ghost tries to speak to them. Most other ghosts will say something like, "Hello, ghostname" or "How are you" or "hey there". A general greeting. So think about your ghost and how they might respond to such a greeting. This functionality is again pretty rare, and while there may be a case where the other ghost just insults yours, it seems so unlikely that I wouldn't sweat it too much.
 
 //*********************Advanced User Info*******************************
-//These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
+//These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. 
+//Also for my own reference in the future since I plan on using this template too, haha. 
+//If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
 
 //There are a few different ways you can refine this dialogue, depending on what ghost is speaking to yours and what they're saying. The things you can check for are reference0 and reference1, being the ghost's sakuraname (in their descript.txt) and what they're saying. For example, let's say you want to check if my Gaster ghost is speaking to yours. In that case, you'd set it up like...
 
