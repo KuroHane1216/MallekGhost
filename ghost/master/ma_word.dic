@@ -12,9 +12,12 @@ exampleenvelope
 	"Example Envelope Dialogue 3"
 }
 
-//As you can see, we stated a word, opened some brackets, wrote some text, and closed the brackets. Now when you write ghost dialogue, you can write %(exampleenvelope) and your ghost will randomly display any of the three bits of text within the brackets! You can go ahead and test this yourself to see how it works, and I'll include some sample dialogue with this in aitalk.dic.
+//As you can see, we stated a word, opened some brackets, wrote some text, and closed the brackets. 
+//Now when you write ghost dialogue, you can write %(exampleenvelope) and your ghost will randomly display any of the three bits of text within the brackets! 
+//You can go ahead and test this yourself to see how it works, and I'll include some sample dialogue with this in aitalk.dic.
 
-//What can you use this kind of envelope for? You can store tons of random information to keep your ghost's dialogue varied! You can store various cities you like in %(city), musicians you like in %(musicians), places your ghost has been in %(places), food you like in %(food), movies you like in %(movie), fandoms you like in %(fandom), characters you like in %(fandomcharacter), celebrities you like under %(celebrity) or friends of yours in %(friends) or bnfs in %(bnfs), folders on your computer under %(folders), Pokemon you like under %(pokemon), insults under %(insult), swear words under %(swearword) which could potentially be hilarious, just about anything! You can make lists of absolutely anything to use with dialogue for your ghost! This .dic file is only limited by your imagination!
+//What can you use this kind of envelope for? You can store tons of random information to keep your ghost's dialogue varied! 
+//You can store various cities you like in %(city), musicians you like in %(musicians), places your ghost has been in %(places), food you like in %(food), movies you like in %(movie), fandoms you like in %(fandom), characters you like in %(fandomcharacter), celebrities you like under %(celebrity) or friends of yours in %(friends) or bnfs in %(bnfs), folders on your computer under %(folders), Pokemon you like under %(pokemon), insults under %(insult), swear words under %(swearword) which could potentially be hilarious, just about anything! You can make lists of absolutely anything to use with dialogue for your ghost! This .dic file is only limited by your imagination!
 //Not only that, but you can put an envelope IN an envelope. Here's another example.
 
 internalenvelope
@@ -24,7 +27,9 @@ internalenvelope
 	"Here is a blanklist object - %(blanklist)."
 }
 
-//You can nest envelopes all day long, although it might get kind of convoluted if you don't keep track. This is particularly handy with %(username), so your ghost can be specific if they're talking about something of the user's, like their files or folders for example. I'll leave a few lists in here you can fill out as you like. And if this doesn't give you ideas, you can ignore this file, since nothing in it will show up unless you write it into the dialogue. You can add or take away as many items as you want from each list.
+//You can nest envelopes all day long, although it might get kind of convoluted if you don't keep track. 
+//This is particularly handy with %(username), so your ghost can be specific if they're talking about something of the user's, like their files or folders for example. 
+//I'll leave a few lists in here you can fill out as you like. And if this doesn't give you ideas, you can ignore this file, since nothing in it will show up unless you write it into the dialogue. You can add or take away as many items as you want from each list.
 
 		//*********************Advanced User Info*******************************
 	  //These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.

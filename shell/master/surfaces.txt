@@ -1,13 +1,22 @@
 //---------------------------Surfaces.txt--------------------------
-//Blegh alright here we go. Surfaces.txt is the backbone of the shell you make for your ghost. Making the images isn't enough, a ghost needs something to tell it where those images go and how to display them, and that's where surfaces.txt comes in.
+//Blegh alright here we go. Surfaces.txt is the backbone of the shell you make for your ghost. 
+//Making the images isn't enough, a ghost needs something to tell it where those images go and how to display them, and that's where surfaces.txt comes in.
 
-//Images are brought together into a thing I generally refer to as a pose, but what is defined in the shell and this text file as a Surface. Each Surface can contain any number of images in it doing any number of things. These Surfaces are what is being called when you use the \s[] tag when writing dialogue. For example, you could create a pose with three images under Surface5, and then in dialogue, you would call that pose made of three images with \s[5]. That's the basic jist of how this file works.
+//Images are brought together into a thing I generally refer to as a pose, but what is defined in the shell and this text file as a Surface. 
+//Each Surface can contain any number of images in it doing any number of things. These Surfaces are what is being called when you use the \s[] tag when writing dialogue. 
+//For example, you could create a pose with three images under Surface5, and then in dialogue, you would call that pose made of three images with \s[5]. 
+//That's the basic jist of how this file works.
+
 //I wrote up some pages about making images and surfaces.txt on the walkthrough (http://www.ashido.com/ukagaka/) so I highly recommend you read those as well.
 
-//I will reiterate that you should be editing these in Notepad++, and in particular, you should set the Language to C (or Java I guess) to properly highlight all the text. It will make things A LOT EASIER for you, trust me! It will also help you keep track of your brackets in case you forget some. If you click on a line with a bracket in Notepad++, it should highlight where the other bracket ends, or turn purple if there's no finishing bracket (which you should definitely fix!)
+//I will reiterate that you should be editing these in Notepad++, and in particular, you should set the Language to C (or Java I guess) to properly highlight all the text. 
+//It will make things A LOT EASIER for you, trust me! It will also help you keep track of your brackets in case you forget some. 
+//If you click on a line with a bracket in Notepad++, it should highlight where the other bracket ends, or turn purple if there's no finishing bracket (which you should definitely fix!)
 //It will also highlight my commented lines in green, so you'll know where they are. Any line beginning with // is a commented line that the code will not read. It's just for your reference!
 
-//There are a lot of crazy tricks you can do with surfaces.txt if you're creative and determined, but you won't have to worry about any of them (although I will include some commented out examples for my own reference). The easiest, easiest way to do this file is simply to replace the images I've already made. There should be around 10 poses for each character defined in surfaces.txt. They break down like this.
+//There are a lot of crazy tricks you can do with surfaces.txt if you're creative and determined, but you won't have to worry about any of them 
+//(although I will include some commented out examples for my own reference). The easiest, easiest way to do this file is simply to replace the images I've already made. 
+//There should be around 10 poses for each character defined in surfaces.txt. They break down like this.
 
 //0 - Girl's default pose. This is made up of a few images.
 	//surface0.png, her full default frame with her eyes and mouth in place to layer stuff on.
@@ -56,10 +65,18 @@
 //19 - Triangle's bored pose.
 	//surface2509.png
 
-//If you look at the image files themselves, you'll see that all the images for Girl are in the 1000 range, and the images for Triangle are in the 2000. ALL YOU NEED TO DO is draw your character with whatever expression you want and save it over the appropriate file. That way, you won't have to adjust any of the coding in surfaces.txt itself, you'll just be replacing the images. You should read through this file anyway though to get an idea of how it works.
+//If you look at the image files themselves, you'll see that all the images for Girl are in the 1000 range, and the images for Triangle are in the 2000. 
+//ALL YOU NEED TO DO is draw your character with whatever expression you want and save it over the appropriate file. 
+//That way, you won't have to adjust any of the coding in surfaces.txt itself, you'll just be replacing the images. 
+//You should read through this file anyway though to get an idea of how it works.
 
-//However, there is one snag here! Girl's default pose has blinking eyes and a moving mouth, and for that, you'll need to study the files for that pose very carefully. Note that the different eye frames and mouth frames are separate files and only have the eyes and the mouths in them. You'll have to do the same. All you have to do is select around your eyes, inverse, delete everything, and save it for each eye frame, and likewise for the mouth frames. I talk about this in a bit more detail in the making images section of the walkthrough page. Hopefully it won't be too hard. If worse comes to worse and you just can't get it to work, you can delete the blinking and talking sequences from surface0 if you have to.
-//(Basically, what surfaces.txt does is overlay the mouth or eye frames on top of your base image to make the animation. That's why all you want in that overlaid frame is the eyes or the mouth.)
+//However, there is one snag here! Girl's default pose has blinking eyes and a moving mouth, and for that, you'll need to study the files for that pose very carefully. 
+//Note that the different eye frames and mouth frames are separate files and only have the eyes and the mouths in them. You'll have to do the same.
+//All you have to do is select around your eyes, inverse, delete everything, and save it for each eye frame, and likewise for the mouth frames. 
+//I talk about this in a bit more detail in the making images section of the walkthrough page. Hopefully it won't be too hard. 
+//If worse comes to worse and you just can't get it to work, you can delete the blinking and talking sequences from surface0 if you have to.
+//(Basically, what surfaces.txt does is overlay the mouth or eye frames on top of your base image to make the animation. 
+//That's why all you want in that overlaid frame is the eyes or the mouth.)
 //Likewise, if you want to add blinking eyes and a moving mouth to your other poses, you'll have to do the same thing as with the default pose - make individual frames for the eyes and mouth, copy and paste the code for the blinking/mouth sections in surface0 to the other surface you want to add them to, and replace the file numbers where appropriate.
 
 //You can change the size of the images if you want to draw a much bigger character than I did! If you do that though, MAKE SURE ALL YOUR IMAGES FOR THAT CHARACTER ARE THE SAME SIZE. So if Girl's image dimensions are 400x400, and you draw a Main Character that's 800x800, MAKE SURE ALL the images for your main character are also 800x800! This applies to the side character too, ALL the images for your side character should be the same dimensions! If your side character is 250x250, all side character images should be 250x250!
@@ -76,7 +93,9 @@
 //--The Main Character's Poses---------------------------------------------------------
 
 surface0
-//surface0 is the basic default pose for your main character. I'll include a few examples of things you can do in this pose, but you won't have to use any of them if you don't want to. They're mostly for (my) reference and advanced users for the most part.
+//surface0 is the basic default pose for your main character. 
+//I'll include a few examples of things you can do in this pose, but you won't have to use any of them if you don't want to. 
+//They're mostly for (my) reference and advanced users for the most part.
 {
 collision0,70,0,191,75,Head
 collision1,70,76,179,183,Face
@@ -212,64 +231,187 @@ element0,overlay,surface0.png,0,0
 //Main Character Embarrassed pose
 surface1
 {
-element0,overlay,surface1501.png,0,0
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+
+	element0,overlay,surface1501.png,0,0
 }
 
 //Main Character Surprised pose
 surface2
 {
-element0,overlay,surface1502.png,0,0
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+
+	element0,overlay,surface1502.png,0,0
 }
 
 //Main Character Worried pose
 surface3
 {
-element0,overlay,surface1503.png,0,0
+	collision0,73,1,190,59,Head
+	collision1,76,55,179,186,Face
+
+	element0,overlay,surface1503.png,0,0
 }
 
 //Main Character Sad/Disappointed pose
 surface4
 {
-element0,overlay,surface1504.png,0,0
+	
+	collision0,133,38,239,86,Head
+	collision1,114,90,218,214,Face
+
+	element0,overlay,surface1504.png,0,0
 }
 
 //Main Character Smiling pose
 surface5
 {
-element0,overlay,surface1505.png,0,0
+	collision0,79,0,191,59,Head
+	collision1,75,49,178,185,Face
+
+	element0,overlay,surface1505.png,0,0
 }
 
 //Main Character Contented pose
 surface6
 {
-element0,overlay,surface1506.png,0,0
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+
+	element0,overlay,surface1506.png,0,0
 }
 
 //Main Character Angry pose
 surface7
 {
-element1,overlay,surface1507.png,0,0
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+	
+	element0,overlay,surface1507.png,0,0
 }
 
 //Main Character Thoughtful Pose
 surface8
 {
-element1,overlay,surface1508.png,0,0
+	collision0,48,12,162,60,Head
+	collision1,64,58,159,188,Face
+
+	element0,overlay,surface1508.png,0,0
 }
 
 //Main Character Bored pose
 surface9
 {
-element1,overlay,surface1509.png,0,0
+	collision0,73,1,190,59,Head
+	collision1,76,55,179,186,Face
+	
+	element0,overlay,surface1509.png,0,0
 }
 
+surface1510
+{
+	
+	collision0,133,38,239,86,Head
+	collision1,114,90,218,214,Face
 
+	element0,overlay,surface1510.png,0,0
+}
+
+surface1511
+{
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+	
+	element0,overlay,surface1511.png,0,0
+}
+
+surface1512
+{
+	collision0,73,1,190,59,Head
+	collision1,76,55,179,186,Face
+
+	element0,overlay,surface1512.png,0,0
+}
+
+surface1513
+{
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+	
+	element0,overlay,surface1513.png,0,0
+}
+
+surface1514
+{
+	collision0,73,1,190,59,Head
+	collision1,76,55,179,186,Face
+
+	element0,overlay,surface1514.png,0,0
+}
+
+surface1515
+{
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+	
+	element0,overlay,surface1515.png,0,0
+}
+
+surface1516
+{
+	collision0,73,1,190,59,Head
+	collision1,76,55,179,186,Face
+
+	element0,overlay,surface1516.png,0,0
+}
+
+surface1517
+{
+	collision0,73,1,190,59,Head
+	collision1,76,55,179,186,Face
+
+	element0,overlay,surface1517.png,0,0
+}
+
+surface1518
+{
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+	
+	element0,overlay,surface1518.png,0,0
+}
+
+surface1519
+{
+	collision0,69,2,183,54,Head
+	collision1,74,63,173,187,Face
+	
+	element0,overlay,surface1519.png,0,0
+}
+
+surface1520
+{
+	collision0,48,12,162,60,Head
+	collision1,64,58,159,188,Face
+
+	element0,overlay,surface1520.png,0,0
+}
+
+surface1521
+{
+	collision0,73,1,190,59,Head
+	collision1,76,55,179,186,Face
+
+	element0,overlay,surface1521.png,0,0
+}
 //--The Side Character's poses------------------
 //I actually intended to do the same thing here with Triangle's default pose as I did with Girl, but then I remembered that he has no mouth, so he can't even use talking frames, haha. He can however use blinking frames! So I'm going to copy the same blinking chunk from surface0 and put it here.
 
 surface10
 {
-collision0,0,0,0,0,Face
+//collision0,0,0,0,0,Face
 //Here are Triangle's collisions. Because they are within Surface10, they only apply when he is in this pose. As mentioned above in surface0, you can set unique collisions for any Surface you like, or you can use surface.append at the end of this file to apply the same collisions to a wide range of surfaces.
 
 element0,overlay,surface10.png,0,0
@@ -285,7 +427,8 @@ element0,overlay,surface10.png,0,0
 //--surface.append-------------------------------------------------------------------
 //This function is primarily for advanced users, so you can skip it if it seems too scary to you. Otherwise, read on. It may be useful.
 
-//Surface.append basically applies the coding within the brackets to the poses specified in the number range. Specifically in this case it applies to collisions. If the collision areas for your ghost don't change very much from pose to pose, then you can set them here for multiple surfaces at once and save yourself some time.
+//Surface.append basically applies the coding within the brackets to the poses specified in the number range. Specifically in this case it applies to collisions. 
+//If the collision areas for your ghost don't change very much from pose to pose, then you can set them here for multiple surfaces at once and save yourself some time.
 //I'm not actually going to use surface.append since Girl and Triangle move around too much for their collisions to be that consistent between poses, but it's something could potentially come in handy for advanced users or ghost makers who have very stationary ghosts, so I'll leave it here and just append it to surfaces that don't exist so it won't get in the way. If you want to use this, study this example and see how it can apply to your own ghost.
 
 
@@ -294,10 +437,11 @@ surface.append500-590 //this is appending this code to Surface500 through Surfac
 //surface.append500-590,205,!507-509 it would do the same, except it would skip Surfaces507 through 509.
 //you can have multiple surface.appends as well, if you want to append one set of code to one range of surfaces and another to another. For example, one set of collisions to your main character and one to your side character.
 {
-collision0,15,16,111,48,Face
-collision1,40,50,102,84,Point
+//collision0,15,16,111,48,Face
+//collision1,40,50,102,84,Point
 
-//Because this is under surface.append, that means that these collisions are being set for every surface between the number range specified, in this case every Surface from 500 to 590. Make sure to put surface.append at the end of your file, so it can append the values to surfaces that exist.
+//Because this is under surface.append, that means that these collisions are being set for every surface between the number range specified, in this case every Surface from 500 to 590. 
+//Make sure to put surface.append at the end of your file, so it can append the values to surfaces that exist.
 
 //--bind-------------------------------------------------------------------------------
 

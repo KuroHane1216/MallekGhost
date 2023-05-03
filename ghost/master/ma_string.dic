@@ -31,7 +31,8 @@ On_homeurl
 
 
 //---- Top Menu Option Caption -----------------------------------------
-//You may have noticed that there are two collapsed links at the top of the SSP right click menu that lead you to another assortment of links. This is the caption for the top option of the menu.
+//You may have noticed that there are two collapsed links at the top of the SSP right click menu that lead you to another assortment of links. 
+//This is the caption for the top option of the menu.
 
 On_recommendrootbutton.caption
  {
@@ -40,7 +41,8 @@ On_recommendrootbutton.caption
 
 
 //---- Top Menu Option Websites -----------------------------------------------------
-//These are the websites listed under that button we just named up there. You can put whatever sites you want in here. I'll actually link to some real sites here to be helpful. Feel free to replace these with the sites you like instead. Pay close attention to the formatting that follows!
+//These are the websites listed under that button we just named up there. You can put whatever sites you want in here. I'll actually link to some real sites here to be helpful. 
+//Feel free to replace these with the sites you like instead. Pay close attention to the formatting that follows!
 
 On_sakura.recommendsites
  {

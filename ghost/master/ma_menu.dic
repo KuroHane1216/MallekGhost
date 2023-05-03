@@ -50,11 +50,14 @@ MenuRun
 	  //***********************************************************************
 	}
 	--
- 	"\![*]\q[Say something,OnAiTalk]\n"
+ 	"\![*]\q[What's on your mind?,OnAiTalk]\n"
 	//"\![*]\q[Say something 2,OnAiTalk]\n"
 	
-	//This option will force the ghost to say something from aitalk if the user clicks it. Just replace "Say something" and "Say something 2" with whatever captions you think would be appropriate for such an option. IF you don't want two options for captions, delete one of the lines.
-	//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, as long as you separate it from the other options into its own section with two dashes above and below.
+	//This option will force the ghost to say something from aitalk if the user clicks it. 
+	//Just replace "Say something" and "Say something 2" with whatever captions you think would be appropriate for such an option. 
+	//IF you don't want two options for captions, delete one of the lines.
+	//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, 
+	//as long as you separate it from the other options into its own section with two dashes above and below.
 	--
 	"\![*]\q[Config Menu,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n\n[half]/
@@ -136,7 +139,8 @@ Select.configmenu
 //***********************************************************************
 
 //--TalkConfig
-//This menu allows the user to change their name and other information, as well as put in their birthday and change how often the ghost speaks. You can restructure how this looks if you want, but it's perfectly functional as is. You can of course change the dialogue though if you like.
+//This menu allows the user to change their name and other information, as well as put in their birthday and change how often the ghost speaks. 
+//You can restructure how this looks if you want, but it's perfectly functional as is. You can of course change the dialogue though if you like.
 
 TalkConfig
 {
@@ -178,7 +182,7 @@ Select.choicemasc
 	hisher = "his"
 	hesshes = "he's"
 	--
-	"\0\s[0]The pronouns are now he him and his.\e"
+	"\0\s[0]he him and his it is;\e"
 	//Leave the part above the double dashes alone. You can replace the snip of dialogue however with whatever you like.
 }
 
@@ -190,7 +194,7 @@ Select.choicefem
 	hisher = "her"
 	hesshes = "she's"
 	--
-	"\0\s[0]The pronouns are now she her and her.\e"
+	"\0\s[0]she/her it is;\e"
 	//as above, you can also replace this dialogue.
 }
 
@@ -202,7 +206,7 @@ Select.choiceneither
 	hisher = "their"
 	hesshes = "they're"
 	--
-	"\0\s[0]The pronouns are now they them and their.\e"
+	"\0\s[0]they them and their it is;\e"
 	//and this one.
 }
 
@@ -232,7 +236,7 @@ Select.deleteoff
 
 Select.TEACHBDAY
 	{	
-		"\0\s[5]what month were you born? \w8Name or number is fine.\![open,inputbox,OnUserBornMonth,-1]\e"
+		"\0\s[5]what month were you born? \w8name or number is fine;\![open,inputbox,OnUserBornMonth,-1]\e"
 		
 		//You can replace the dialogue up to the \![open,inputbox,OnUserBornMonth,-1] tag, leave that alone. You'll need the input box to get the information.
 		
@@ -266,7 +270,7 @@ OnUserBornMonth
 	
 	else //if the month isn't a valid month, like 32 or something.
 	{
-			"\0\s[0]= you sure that = a month?"
+			"\0\s[0]you sure that = a month?"
 			--
 			"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
 			
@@ -334,12 +338,12 @@ birthchecked
 {
 	if userbirthday == dayslot //if today is the user's birthday
 		{
-			"\0\s[2]your birthday = today;\w4 \s[5]happy birthday, %(username);\e"
+			"\0\s[2]oh your birthday = today;\w4 \s[5]happy birthday, %(username);\e"
 			//replace this dialogue with whatever you like
 		}
 	//elseif userbirthday == "12month 25day"
 	//	{
-	//		"\0\s[0]The user was born on Christmas.\w8\1\s[10]Happy birthday, %(username). \w5\s[15]AND JESUS!\w8\0\s[9]\n\n[half]We're supposed to be a blank template, knock it off before we get in trouble.\e"
+	//		"\0\s[0]you = born on christmas?\w8\1\s[10]happy birthday %(username), and i hope you = having a great day today;\e"
 	//		//As you can see, you can set up an elseif statement to check if the user's birthday is any day you want! More on elseif statements in bootend.dic. In this case, there's specialized dialogue if the user was born on Christmas. You can replace this with whatever you like, or change the date you're checking as well, like to one of your character's birthdays if you want. You can also delete this elseif if you don't care.
 	//	}
 	else //if the birthday is not listed above.
@@ -354,7 +358,7 @@ birthchecked
 
 Select.talkinter
  	{
- 		"\0\s[0]\b2How often should we speak?\w8\1\s[10]The interval is currently set to %(talktime)./
+ 		"\0\s[0]\b2how often should i talk to you?\w8\1\s[10]The interval is currently set to %(talktime)./
 		//note the new envelope here for %(talktime). You'll see it again in a second. You can replace the dialogue above with whatever you like, just make sure it ends with ./ and not \e.
  		\0\n\n[half]/
  		\![*]\q[Every 30 seconds,TALKMAX]\n/
@@ -413,7 +417,7 @@ Select.TALKNONE
  		talktime = "...actually we won't talk at all"
 		aitalkinterval = 0
 		
-		"\0\s[0]We will not speak.\e"
+		"\0\s[0]i'll stay quiet for you;\e"
 	}
 
 	
@@ -427,9 +431,9 @@ Select.TEACHNAME
 //If the user selects cancel in a menu. Replace as you like, or just leave them blank.
 Select.CANCEL
 	{
-		"\0\s[0]This is a cancel message.\e"
+		"\0\s[5]that = cool; i = always here if you need me;\e"
 		
-		"\0\s[0]This is another cancel message.\e"
+		//"\0\s[0]This is another cancel message.\e"
  	}
 
 	
@@ -528,7 +532,7 @@ Select.MailCheck
 
 OnChoiceTimeout
  {
-	"\0\s[0]The menu has timed out.\e"
+	"\0\s[3]you still there robobuddy?\e"
  }
 
  

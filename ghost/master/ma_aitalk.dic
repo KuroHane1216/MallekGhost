@@ -42,7 +42,9 @@ OnAiTalk
  //(or if you ignored that, set in bootend.dic in the first boot, which would be every five minutes).
  
 //*********************Advanced User Info*******************************
-//These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
+//These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. 
+//Also for my own reference in the future since I plan on using this template too, haha. 
+//If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
 
 //You CAN link to other pools of dialogue in RandomTalk using envelopes/functions, such as %(teatalk) to pull from a pool of dialogue about tea. 
 //Then you'd just add that line in among the other dialogue in here with %(teatalk). However, this vastly lowers the probability of dialogue in that function being called. 
@@ -70,8 +72,6 @@ RandomTalk : nonoverlap_pool
 	//You're going to have to write most of it yourself. So instead, I'll give you a set of examples to look at.
 	
 	"\0\s[0]He starts humming a little tune.\e"
-	
-	"\1\s[10]This is a single line of dialogue for the side character.\e"
 	
 	//Single lines of dialogue like this are simple and easy to do.
 	
@@ -172,7 +172,9 @@ RandomTalk : nonoverlap_pool
 	
 	//"\0\s[0]This is the first part of a chained dialogue.\w8\1\s[10]Second part to come when we next speak.\e:chain=achain"
 	"\0\s[4]He seems to be stumpted on a bug in the code he's working on.\e:chain=codingBug"
-	//Note here that instead of ending the dialogue with the normal end tag of \e, it ends with \e:chain=achain. This will link down below to a chunk of code outside RandomTalk called achain. You can scroll down and find it now if you want. You can name your chain anything you want, it'd just follow the same format of \e:chain=yourchainsname. Once a dialogue has entered a chain, they won't say any other random dialogue until the chain is finished.
+	//Note here that instead of ending the dialogue with the normal end tag of \e, it ends with \e:chain=achain. This will link down below to a chunk of code outside RandomTalk called achain. 
+	//You can scroll down and find it now if you want. You can name your chain anything you want, it'd just follow the same format of \e:chain=yourchainsname. 
+	//Once a dialogue has entered a chain, they won't say any other random dialogue until the chain is finished.
 	
 	"\0\s[0]This will lead to the second piece of chained dialogue.\w8\1\s[10]This will have another chain attached to it.\e:chain=anotherchain"
 	
@@ -180,7 +182,10 @@ RandomTalk : nonoverlap_pool
 	
 	
 	//--If statements
-	//You can put if statements in RandomTalk! They don't even need Else statements, unless you want to keep two sets of statements completely separate - for example, you have one pool of conversations for when there are two characters, and one for if there are three characters. You wouldn't want these to overlap, so you'd put one pool in the if statement and the other in the else. Most of the time though, you won't need an Else statement for these, since they'll mostly only be adding in dialogue if the if statement is true. 
+	//You can put if statements in RandomTalk! They don't even need Else statements, unless you want to keep two sets of statements completely separate
+	//for example, you have one pool of conversations for when there are two characters, and one for if there are three characters. 
+	//You wouldn't want these to overlap, so you'd put one pool in the if statement and the other in the else. 
+	//Most of the time though, you won't need an Else statement for these, since they'll mostly only be adding in dialogue if the if statement is true. 
 	
 	if nowshell == "master" //This checks to see what shell they're currently using. You may remember this value being defined back in bootend.dic. If they're in their default shell...
 	{
@@ -197,7 +202,9 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]This is more dialogue related to a hypothetical shell we don't actually have.\w8\1\s[19]It's not happening.\e"
 	}
-	//After the if statement is done, you can continue with dialogue as normal. As you can see, you can move the ifs around in here, it doesn't really matter. You may want to stick them all in one place together if you want to keep track of them, or you can scatter them around your dialogue as you please. It's up to you. These two lines below are just normal random dialogue.
+	//After the if statement is done, you can continue with dialogue as normal. As you can see, you can move the ifs around in here, it doesn't really matter. 
+	//You may want to stick them all in one place together if you want to keep track of them, or you can scatter them around your dialogue as you please. It's up to you. 
+	//These two lines below are just normal random dialogue.
 	
 	"\1\s[10]This is generic dialogue.\w8\0\s[0]This can be replaced with whatever you want.\e"
 	
@@ -327,9 +334,8 @@ RandomTalk : nonoverlap_pool
 	//These ifs check for the time of day as defined in bootend.dic. Do you remember the words used for each chunk of time in GetTimeSlot? These are the same words!
 	if timeslot == "earlymorning"
 	{
-		"\0\s[0]you = up pretty early today; not even 8am yet;\e"
-		
-		"\0\s[0]This is more dialogue for early morning.\w8\1\s[10]That it is.\e"
+		"\0\s[2]you = up pretty early today; \s[1515]not even 8am yet;\e"
+		"\1\s[10]He seems tired. \w8Did he even go to bed yet?\0\s[1510] hey of course i have;\w8\w8\s[4] not;"
 	}
 	if timeslot == "morning"
 	{
@@ -363,14 +369,15 @@ RandomTalk : nonoverlap_pool
 	}
 	if timeslot == "midnight"
 	{
-		"\0\s[0]He looks a little sleepy.\e"
+		"\1\s[0]He looks a little sleepy.\e"
 		
-		"\0\s[0]You wonder if he will go to sleep if you do as well.\e"
+		"\1\s[0]You wonder if he will go to sleep if you do as well.\e"
 	}
 	
 	
 	//--Double Envelopes
-	//If you've gone through word.dic, you may remember a list with two sets of values on each line. This is how you would call something like that! Technically, what I call a double envelope is really an array, or a stored list of values. You can pull certain things out of that list as you need, although it requires some specific formatting. For this example, we'll use the double envelope that cindysuke made that has a Korean word and its definition. This can be a bit complicated, so pay close attention.
+	//If you've gone through word.dic, you may remember a list with two sets of values on each line. This is how you would call something like that! 
+	//Technically, what I call a double envelope is really an array, or a stored list of values. You can pull certain things out of that list as you need, although it requires some specific formatting. For this example, we'll use the double envelope that cindysuke made that has a Korean word and its definition. This can be a bit complicated, so pay close attention.
 	//If this scares you too much, you can delete the whole thing.
 	
 	//note that this is enclosed in its own set of brackets
@@ -448,7 +455,9 @@ RandomTalk : nonoverlap_pool
 	
 	"\0\s[0]\f[height,20]These words are really large.\f[height,default]\w8\1\s[10]These words are a normal size. \w8\f[height,6]These words are small.\f[height,default]\e"
 	
-	//You can use other fancier SakuraScript bits in your dialogue if you want to get font effects, although I won't get too much into them here. In this case, \f[height,20] changes the height of the font, in this case to 20 or to 6, and then \f[height,default] changes them back to normal. I touch more on this in the SakuraScript page of the walkthrough.
+	//You can use other fancier SakuraScript bits in your dialogue if you want to get font effects, although I won't get too much into them here. 
+	//In this case, \f[height,20] changes the height of the font, in this case to 20 or to 6, and then \f[height,default] changes them back to normal. 
+	//I touch more on this in the SakuraScript page of the walkthrough.
 	
 	"\0\s[0]\f[strike,true]These words are struck out.\f[strike,default]\w8\1\s[10]\f[sub,true]These words are a subscript.\f[sub,false] \f[sup,true]These words are a superscript.\f[sup,false] \f[underline,true]These words are underlined.\f[underline,default] \f[bold,true]These words are bold.\f[bold,false] \f[italic,true]These words are italic.\f[italic,false] \f[color,186,146,112]These words are a color.\f[color,default] This tag would return to default.\f[default]\e"
 	
@@ -489,7 +498,9 @@ codingBug
 	"\0\s[5]It looks like he fixed the bug.\e:chain=end"
 }}CHAIN
 
-//Pay careful attention to the CHAIN text and double brackets for these. Double brackets, CHAIN, dialogue, double brackets, CHAIN. If you are planning on making chains, I'd recommend just copying and pasting the chain example here and changing the dialogue and name of the function as you need. Less likely for mistakes to happen, you know?
+//Pay careful attention to the CHAIN text and double brackets for these. Double brackets, CHAIN, dialogue, double brackets, CHAIN. 
+//If you are planning on making chains, I'd recommend just copying and pasting the chain example here and changing the dialogue and name of the function as you need. 
+//Less likely for mistakes to happen, you know?
 //Note also it ends with \e:chain=end, basically ending the chain.
 
 anotherchain
@@ -656,7 +667,8 @@ OnSurfaceRestore
 
  
  //--OnKeyPress
- //This defines the hotkeys your ghost will use. You can change these to whatever you want, but I don't really know why you would. I'd just leave this alone. Advanced Users can add new hotkeys attached to whatever function if you want.
+ //This defines the hotkeys your ghost will use. You can change these to whatever you want, but I don't really know why you would. I'd just leave this alone. 
+ //Advanced Users can add new hotkeys attached to whatever function if you want.
  
 OnKeyPress
 {

@@ -128,9 +128,9 @@ ReplyToGhost
              AlreadyResponded = 1 //setting a flag to say they've responded once already
 
              {
-             "\0\s[0]Hello, %(res_reference0).\w8\1\s[10]Hope you're doing well.\e"
+             //"\0\s[0]Hello, %(res_reference0).\w8\1\s[10]Hope you're doing well.\e"
 
-             "\1\s[10]Hey, %(res_reference0).\e"
+             "\1\s[10]hey %(res_reference0);\e"
              }
        }
 }
