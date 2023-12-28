@@ -59,7 +59,8 @@ MenuRun
 	//Advanced users, you can add multiple captions for any option you add to a menu you make just like this, 
 	//as long as you separate it from the other options into its own section with two dashes above and below.
 	--
-	"\![*]\q[Config Menu,configmenu]\n/
+	"\![*]\q[Task Manager,taskManager]\n/
+	\![*]\q[Config Menu,configmenu]\n/
 	\![*]\q[Functions,dosomething]\n\n[half]/
  	\![*]\q[Nevermind,CANCEL]\n\n\n[half]%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
 	
@@ -123,6 +124,10 @@ Select.BACKTOMENU
 		MenuRun
 	}
 
+Select.taskManager
+{
+	TaskManager
+}
 //If someone selects configmenu, this will lead to TalkConfig.
 Select.configmenu
 	{
@@ -137,6 +142,60 @@ Select.configmenu
 //The basic jist is this; if you're going to reuse whatever it is the option leads to, you should make it its own function. 
 //Otherwise, you can leave it in Select.option. As a rule of thumb I'd probably put any complicated stuff in its own function, then use the Select.option to call the full function as you can see above. Simple dialogue responses to a choice can stay as a Select.option though (Like "Do you like going to raves and partying? Yes/No"). Study what stays as a Select.option and what links to another Function as we go through the file.
 //***********************************************************************
+
+
+//TaskManager
+//This menu allows the user to manage tasks
+TaskManager
+{
+	"\0\s[0]\b2you need help getting organized?\n\n"
+	--
+	CurrentTasks
+	--
+ 	"\0\n\n[half]/
+ 	\![*]\q[Add a task,addTask]\n/
+	\![*]\q[Edit a task,editTask]\n/
+ 	\![*]\q[Delete a task,delTask]\n\n[half]\n"
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+CurrentTasks
+{
+	if taskList != ""
+	{
+		"\0\s[0]here = what you got on your plate right now;\n\n/
+		%(taskList)"
+	} else
+	{
+		"\0\s[0]you = pretty free right now;"
+	}
+}
+
+Select.addTask
+{
+	"\0\s[0]testing input: \![open,inputbox,OnAddTaskName,-1]\e"
+}
+
+OnAddTaskName
+{
+	temp = TOSTR(reference0)
+
+	"\0\s[0]test: %(reference0)\e"
+}
+
+Select.editTask
+{
+	"\0\s[0]TESTedit"
+}
+
+Select.delTask
+{
+	taskList = ""
+	"\0\s[0]task deleted\n\n/
+	\![*]\q[Task Manager,taskManager]\n"
+}
+
 
 //--TalkConfig
 //This menu allows the user to change their name and other information, as well as put in their birthday and change how often the ghost speaks. 
@@ -279,7 +338,7 @@ OnUserBornMonth
 	--
 	//If it's a valid month
 	
-	"\0\s[0]so you were born in %(bornmonthprint);\n\w8What day = it?"
+	"\0\s[0]so you were born in %(bornmonthprint);\n\w8what day = it?"
 	--
 	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
 	

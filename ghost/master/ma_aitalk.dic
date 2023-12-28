@@ -334,7 +334,7 @@ RandomTalk : nonoverlap_pool
 	//These ifs check for the time of day as defined in bootend.dic. Do you remember the words used for each chunk of time in GetTimeSlot? These are the same words!
 	if timeslot == "earlymorning"
 	{
-		"\0\s[2]you = up pretty early today; \s[1515]not even 8am yet;\e"
+		"\0\s[2]you = up pretty early today; \w8\s[1515]not even 8am yet; \w8\1\s[10]You mention that people usually wake up around this time. \w8\0\n\s[1512]uh; yeah; like i totally do;\e"
 		"\1\s[10]He seems tired. \w8Did he even go to bed yet?\0\s[1510] hey of course i have;\w8\w8\s[4] not;"
 	}
 	if timeslot == "morning"

@@ -56,7 +56,10 @@ OnFirstBoot
 	deleteshitai = "OFF" //Sets whether or not the user can uninstall the ghost to "OFF". The user can change it later in the config menu (see menu.dic). 
 	nowshell = "master" //This is for a special if check in aitalk.dic to see what shell the ghost is using. You should use the name of your default shell folder here.
 	firstboot = 1 //This marks that this is the first time you've run the ghost. It's so it won't reroute to general name changing dialogue when the user inputs their name.
-	
+	//Simple array for storing tasks. Tasks are delimited with '|'
+	//Within tasks, the structure is "name^description^length"
+	taskList = ""
+
 	if reference0 == 0 //Don't touch this line.
  	{
 		//---- Alright, here is where the dialogue for your ghost begins! Again, I hope you've studied up on the walkthrough's guide to dialogue coding! 
