@@ -59,6 +59,7 @@ OnFirstBoot
 	//Simple array for storing tasks. Tasks are delimited with '|'
 	//Within tasks, the structure is "name^description^length"
 	taskList = ""
+	mallekEncounter = 5
 
 	if reference0 == 0 //Don't touch this line.
  	{
@@ -74,7 +75,8 @@ OnFirstBoot
 		//Always make sure to keep your dialogue in the quotation marks! And remember, you can't use quotation marks IN dialogue either. 
 		//You can use two single apostrophes instead if you must. And REMEMBER what I said about \![enter,passivemode]! Do NOT delete that tag!
 		
-		"\![enter,passivemode]\1\s[10]\0\s[0]= that you robobuddy? \w4how did you get access to this channel? either way it = great to see you again; \w4\n\n[half]do you still use they/them pronouns? \x\c\0\s[0]\n\n[half]/
+		"\![enter,passivemode]\0\s[8]\w8\w8\s[5]= that you robobuddy?\x\1\s[10]. \w8. \w8.\w8\nThere's... a weird creature on your screen. \xMaybe you shouldn't have opened that random file that appeared on your computer.\x/
+		\0\s[3]\nweird \w8\w8creature? \x\s[2]= this... \w8 oh my god i think it =;\x\s[1512]\n\n[half]hey robobuddy, uh \w4do you still use they/them pronouns? \x\c\0\s[0]\n\n[half]/
 		\w5\_q\![*]\q[He/Him/His,choicefirsthehim]\n/
 		\![*]\q[She/Her/Hers,choicefirstsheher]\n/
 		\![*]\q[They/Them/Their,choicefirsttheythem]\e"
@@ -161,7 +163,7 @@ NameInput
 {
 	//Note that there's a \![leave,passivemode] tag in this dialogue! Don't forget about this! If you leave them in passivemode they won't talk at all and it'd sort of defeat the purpose, right? I actually forgot this for a while with Hunter and Smoker and didn't notice because OnFirstBoot only runs once, so it took me some testing to find out what was wrong. Always make sure to leave passivemode when you're done with it!
 	
-	"\1\s[10]cool; cool; \![leave,passivemode]\w8\0\s[0]and uh; i know it = been a while but i don't think i ever got your name \![open,inputbox,OnNameTeach,-1]\e"
+	"\![leave,passivemode]\0\s[1512]cool; cool; \w8and uh; = there a name you want me to call you? \![open,inputbox,OnNameTeach,-1]\e"
 	
 	//At the end of this dialogue there's a tag saying "\![open,inputbox,OnNameTeach,-1]". It basically leads to the naming function defined in nameteach.dic, so don't touch it. 
 	//Make sure it's there though! Otherwise your user won't have a way to put in their name. :o
@@ -239,7 +241,7 @@ OnBoot
 	passhour = 0
 	passmin = 0
 	passsec = 0
-	
+
  	"\0\s[0]\1\s[10]" //This sets them up in their neutral pose for now.
 	
 	//If you don't want to deal with individual day messages when you boot them, you can delete everything down to the end bracket for OnBoot 
@@ -281,7 +283,7 @@ OnBoot
 	//***********************************************************************
 	
 	{
-				"\0\s[0]i heard that today is a special day? \s[8]not entirely sure what that = about\s[5]but uh; congrats;\e"
+				"\0\s[0]i heard that today is a special day? \s[8]not entirely sure what the big deal = for 4/13\s[5]but uh; congrats;\e"
 	}
 	else
 	{
@@ -535,7 +537,7 @@ OnGhostChanged
 	}
 	else //If you're switching to them from another ghost...
 	{
-		"\1\s[10]hey robobuddy; you finish calling %(reference0)?\e"
+		"\0\s[0]hey robobuddy; you finish calling %(reference0)?\e"
 
 		//Again, %(reference0) in this function is the name of the ghost in question. As above, replace these two lines of dialogue what what'd be appropriate for your ghost.
 	}

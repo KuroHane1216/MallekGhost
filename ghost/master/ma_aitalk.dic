@@ -369,12 +369,16 @@ RandomTalk : nonoverlap_pool
 	}
 	if timeslot == "midnight"
 	{
-		"\1\s[0]He looks a little sleepy.\e"
+		"\1\s[10]He looks a little sleepy.\e"
 		
 		"\1\s[0]You wonder if he will go to sleep if you do as well.\e"
 	}
 	
-	
+	//Encounter specific lines
+	if mallekEncounter == 5
+	{
+		"\0\s[5]\1\s[10]He keeps looking at you expectantly."
+	}
 	//--Double Envelopes
 	//If you've gone through word.dic, you may remember a list with two sets of values on each line. This is how you would call something like that! 
 	//Technically, what I call a double envelope is really an array, or a stored list of values. You can pull certain things out of that list as you need, although it requires some specific formatting. For this example, we'll use the double envelope that cindysuke made that has a Korean word and its definition. This can be a bit complicated, so pay close attention.

@@ -490,7 +490,7 @@ Select.TEACHNAME
 //If the user selects cancel in a menu. Replace as you like, or just leave them blank.
 Select.CANCEL
 	{
-		"\0\s[5]that = cool; i = always here if you need me;\e"
+		"\0\s[5]that = cool; i'll be here;\e"
 		
 		//"\0\s[0]This is another cancel message.\e"
  	}
@@ -584,7 +584,15 @@ Select.MailCheck
 		"\![biff]\e"
 	}
 
+Select.progressStory
+{
+ 		if mallekEncounter == 5
+		{
+			"\0\s[0]so \w8 hey there; i = mallek adalov; we've met before;\w8 at least on my end\w8; but it seems like this = your first time meeting me?"
+		}
 
+		mallekEncounter--
+}
 	
 //---- OnChoiceTimeout ---------------------------------------------------------
 //If the user is given a menu with choices, but doesn't pick one of the choices, it will eventually time out. At that point, they will say this dialogue. Replace with whatever you like, or leave it blank.
